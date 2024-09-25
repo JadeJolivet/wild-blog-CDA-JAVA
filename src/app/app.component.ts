@@ -11,5 +11,5 @@ import { ArticleComponentComponent } from './article-component/article-component
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'Bienvenue sur le Wild Blog de Jade';
+  title = "Welcome on Jade's Wild Blog";
 }
