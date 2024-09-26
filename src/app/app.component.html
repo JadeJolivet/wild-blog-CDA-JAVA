@@ -1,3 +1,26 @@
-      <h1>{{ title }}</h1>
-      <app-article-component/>
-  
+<h1>{{ headerTitle }}</h1>
+
+<ul class="article-list">
+      @for (article of articles; track $index) { 
+          @if (article.isPublished) {
+      <li
+        [ngClass]="{ published: article.isPublished, 
+          popular: article.likes > 100}"
+      >
+        <img class="article-image" [src]="article.image" alt="{{ article.title }}" />
+        <div class="card-content">
+          <h2 [ngStyle]="{ color: article.likes > 100 ? 'green' : 'black' }">
+            {{ article.title }}
+          </h2>
+          <p>Auteur : {{ article.author }}</p>
+          <p>{{ article.content }}</p>
+          <p>Likes: {{ article.likes }}</p>
+        </div>
+      </li>
+      } 
+      } @empty {
+      <li class="empty-message">Aucun article disponible</li>
+      }
+    </ul>
+    
+    

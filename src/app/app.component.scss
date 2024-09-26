@@ -1,6 +1,39 @@
-h1{
-   text-align: center;
-   font-size: 2rem;
-   margin: 4rem;
-   color: #ff6b6b;
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 4rem;
+  color: #ff6b6b;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.published {
+  border: 3px solid #ff6b6b;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popular {
+  font-weight: bold;
+  background-color: #f7d9eb;
+}
+
+.article-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
