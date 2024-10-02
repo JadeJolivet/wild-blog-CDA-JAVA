@@ -1,0 +1,69 @@
+<section>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username"> Username* :</label>
+      <input id="username" formControlName="username" />
+    </div>
+    @if(signUpForm.get('username')?.invalid &&
+    signUpForm.get('username')?.touched) {
+    <div>
+      @if(signUpForm.get('username')?.errors?.['required']) {
+      <span class="error">Username is required*</span>
+      } @if(signUpForm.get('username')?.errors?.['minlength']) {
+      <span class="error">*Username must be at least 3 characters.</span>
+      }
+    </div>
+    }
+
+    <div>
+      <label for="email">*Email</label>
+      <input id="email" formControlName="email" />
+    </div>
+    @if(signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched) {
+    <div>
+      @if(signUpForm.get('email')?.errors?.['required']) {
+      <span class="error">*Email is required</span>
+      } @if(signUpForm.get('email')?.errors?.['email']) {
+      <span class="error">*Email must be valid</span>
+      }
+    </div>
+    }
+
+    <div class="passwords" formGroupName="passwords">
+      <div>
+        <label for="password">*Password</label>
+        <input type="password" id="password" formControlName="password" />
+      </div>
+      @if (signUpForm.get('passwords.password')?.invalid &&
+      signUpForm.get('passwords.password')?.touched) {
+      <div class="error">
+        @if (signUpForm.get('passwords.password')?.errors?.['required']) {
+        <span class="error">*Password is required.</span>
+        } @if (signUpForm.get('passwords.password')?.errors?.['securePassword'])
+        {
+        <span
+          >*The password must contain at least 12 characters, including an
+          uppercase letter, a lowercase letter, a digit, and a special
+          character.
+        </span>
+        }
+      </div>
+      }
+      <div>
+        <label for="confirmPassword">*Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+        />
+      </div>
+      <div>
+        @if (signUpForm.get('passwords')?.errors?.['passwordsMismatch'] &&
+        signUpForm.get('passwords')?.touched) {
+        <span class="error">*Password doesn't match</span>
+        }
+      </div>
+    </div>
+    <button type="submit" [disabled]="signUpForm.invalid">Suscribe</button>
+  </form>
+</section>

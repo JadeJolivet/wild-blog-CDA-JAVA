@@ -14,7 +14,7 @@
     @if (contactForm.submitted && firstname.errors){
     <div>
       @if(firstname.errors['required']) {
-      <span class="error">Firstname is required</span>
+      <span class="error">*Firstname is required</span>
       } @if (firstname.errors['minlength']) {
       <span class="error"> Firstname must have at least 2 characters</span>
       } @if (firstname.errors['maxlength']) {
@@ -39,7 +39,7 @@
     @if (contactForm.submitted && lastname.errors) {
     <div>
       @if (lastname.errors['required']) {
-      <span class="error"> Lastname is required</span>
+      <span class="error"> *Lastname is required</span>
       } @if (lastname.errors['minlength']) {
       <span class="error"> Lastname must have at least 2 characters</span>
       } @if (lastname.errors['maxlength']){
@@ -63,7 +63,7 @@
     @if (contactForm.submitted && email.errors) {
     <div>
       @if (email.errors['required']) {
-      <span class="error">Email is required</span>
+      <span class="error">*Email is required</span>
       } @if (email.errors['email']) {
       <span class="error"> "Please provide a valid email address."</span>
       }
@@ -71,7 +71,7 @@
     }
   </fieldset>
   <fieldset>
-    <label for="content">Your Message Here</label>
+    <label for="content">Your Message Here : </label>
     <textarea
       id="content"
       name="content"
