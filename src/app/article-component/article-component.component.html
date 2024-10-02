@@ -1,49 +1,15 @@
 <div class="article-container">
-  @for (article of articles; track article.id) {
   <article class="article-card">
-    <ul>
-      <li
-        [ngClass]="{
-          published: article.isPublished,
-          popular: article.likes > 100
-        }"
-      >
-        <h2 [ngStyle]="{ color: article.likes > 100 ? 'grey' : 'black' }">
-          <a [routerLink]="['/article', article.id]">{{ article.title }}</a>
-        </h2>
-
-        <img
-          [src]="article.image"
-          class="article-image"
-          [alt]="article.title"
-        />
-
-        @if (article.isPublished) {
-        <p>{{ article.content }}</p>
-
-        }
-
-        <button (click)="togglePublication(article)">
-          {{ article.isPublished ? "Unpublish" : "Publish" }}
-        </button>
-
-        <p class="editedBy">Made with ❤️ by {{ article.author }}</p>
-      </li>
-    </ul>
-
+    <h2>{{ article.title }}</h2>
+    <img [src]="article.image" class="article-image" [alt]="article.title" />
+    <p>{{ article.content }}</p>
+    <p class="editedBy">Made with ❤️ by {{ article.author }}</p>
     <p>Likes : {{ article.likes }} 💖</p>
 
     <div class="comment-section">
-      <label for="comment-{{ $index }}">Add a comment:</label>
-      <input
-        id="comment-{{ $index }}"
-        type="text"
-        [(ngModel)]="article.comment"
-      />
-      @if (article.comment) {
+      <h3>Comment</h3>
       <p>{{ article.comment }}</p>
-      }
+      <label for="comment">Add your comment</label>
     </div>
   </article>
-  }
 </div>
