@@ -1,15 +1,27 @@
 <div class="article-container">
+  @for (article of articles; track $index) {
   <article class="article-card">
     <h2>{{ article.title }}</h2>
     <img [src]="article.image" class="article-image" [alt]="article.title" />
     <p>{{ article.content }}</p>
     <p class="editedBy">Made with ❤️ by {{ article.author }}</p>
-    <p>Likes : {{ article.likes }} 💖</p>
+    <p>
+      <button (click)="like()">💖 I Like !</button>
+      Likes: {{ article.likes }}
+    </p>
 
     <div class="comment-section">
-      <h3>Comment</h3>
       <p>{{ article.comment }}</p>
       <label for="comment">Add your comment</label>
+      <input
+        type="text"
+        id="comment"
+        placeholder="Write your comment here..."
+      />
+      @if (article.comment) {
+      <p>{{ article.comment }}</p>
+      }
     </div>
   </article>
+  }
 </div>

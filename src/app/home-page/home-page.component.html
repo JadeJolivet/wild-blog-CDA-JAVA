@@ -1,13 +1,14 @@
 <h1>{{ title }}</h1>
 
-<ul>
-  <li><a [routerLink]="['/']">Home</a></li>
+@if (messageFromArticle) {
+<p>{{ messageFromArticle }}</p>
+}
+
+<div class="article-container">
   @for (article of articles; track $index) {
-  <li>
-    <a [routerLink]="['/article', article.id]">{{ article.title }}</a>
-  </li>
+  <app-article-component
+    [article]="article"
+    (likeEvent)="handleArticleLiked($event)"
+  ></app-article-component>
   }
-  <li><a [routerLink]="['articles']"></a></li>
-  <li><a [routerLink]="['contact']">Contact Us ! </a></li>
-  <li><a [routerLink]="['sign-up']">Suscribe</a></li>
-</ul>
+</div>

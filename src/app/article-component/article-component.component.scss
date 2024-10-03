@@ -9,8 +9,7 @@
 .article-card {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  height: auto;
+  max-width: 400px;  
   width: 100%;
   margin: 1rem;
   padding: 1.5rem;
@@ -18,7 +17,7 @@
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+  
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -31,19 +30,10 @@
     color: #282828;
   }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .popular {
-    font-weight: bold;
-  }
-
   .article-image {
     width: 100%;
-    max-height: 200px;
-    object-fit: cover;
+    height: 200px;  
+    object-fit: cover;  
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -58,7 +48,7 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 3;  
     line-clamp: 3;
     margin-bottom: 1rem;
   }
@@ -75,7 +65,7 @@
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 1rem;
-    background-color: #f9f9f9;
+    background-color: #f1f1f1; 
 
     label {
       font-weight: bold;
@@ -104,4 +94,20 @@
       color: #5a5959;
     }
   }
+  .like-btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease-in-out;
+    border: solid;
+  
+    &:hover {
+      transform: scale(1.2);
+    }
+  
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+  
 }
+
